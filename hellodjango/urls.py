@@ -18,8 +18,9 @@ from django.contrib import admin
 from helloapp import views as helloviews
 
 urlpatterns = [
-	url(r'^$', helloviews.hello),
+	url(r'^$', helloviews.index, name='home'),
 	url(r'^add/$', helloviews.add, name='add'),
-	url(r'^add/(\d+)/(\d+)/$', helloviews.add2, name='add2'),
+    url(r'^add/(\d+)/(\d+)/$', helloviews.old_add2_redirect),
+	url(r'^new_add/(\d+)/(\d+)/$', helloviews.add2, name='add2'),
     url(r'^admin/', admin.site.urls),
 ]
