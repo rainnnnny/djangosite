@@ -6,6 +6,33 @@
 <body>
  
 <a href="{% url 'add2' 11 5 %}">click to add</a>
- 
+
+<br>
+{{sTest}}
+<br>
+
+{% for i in lList %}
+<br>
+{{ i }}
+{% endfor %}
+
+<br>
+{% for key, value in dDict.items %}
+{{ key }} -> {{ value }}
+{% endfor %}
+<br>
+
+{{dDict.a}}
+<br>
+
+user: {{ request.user }}
+<br>
+path: {{ request.path }}
+<br>
+get args: {{ request.GET.urlencode }}
+<br>
+
+<br>
+
 </body>
 </html>

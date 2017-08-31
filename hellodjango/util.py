@@ -4,7 +4,7 @@ import threading #for: class Timer,
 
 
 class timer(threading.Timer):
-	
+
 	def clear(self):
 		self.function = None
 		self.args = None
