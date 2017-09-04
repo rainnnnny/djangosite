@@ -16,11 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from helloapp import views as helloviews
+from main import views as mainviews
 
 urlpatterns = [
-	url(r'^$', helloviews.index, name='home'),
+	url(r'^test$', helloviews.test, name='test'),
 	url(r'^add/$', helloviews.add, name='add'),
 	url(r'^add/(\d+)/(\d+)/$', helloviews.old_add2_redirect),
 	url(r'^new_add/(\d+)/(\d+)/$', helloviews.add2, name='add2'),
+
+	url(r'^$', mainviews.login, name="login"),
 	url(r'^admin/', admin.site.urls),
+
 ]

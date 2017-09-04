@@ -1,10 +1,13 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <head>
     <title>djaaaaaaaaaaaaaaango!</title>
 </head>
 <body>
- 
+
 <a href="{% url 'add2' 11 5 %}">click to add</a>
 
 <br>

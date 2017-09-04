@@ -6,11 +6,11 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 
-def index(request):
+def test(request):
 	sTest = "asdf123花生豆腐"
 	lList = ["HTML", "CSS", "javaScript", "Python", "Django"]
 	dDict = {'a':1, 'b':2, 'c':3}
-	return render(request, 'home.html', {'sTest':sTest, 'lList':lList, 'dDict':dDict})
+	return render(request, 'test.html', {'sTest':sTest, 'lList':lList, 'dDict':dDict})
 
 def hello(request):
 	return HttpResponse("Hello django! ")
