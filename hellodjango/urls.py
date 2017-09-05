@@ -26,6 +26,5 @@ urlpatterns = [
 
 	url(r'^$', mainviews.login, name="login"),
 	url(r'^admin/', admin.site.urls),
-	url(r'^OnLogin/$', mainviews.OnLogin, name="OnLogin"),
 
 ]

@@ -29,6 +29,7 @@ class Timer():
 		if self.repeats <= 0:
 			self.Stop()
 		else:
+			self.oTimer.clear()
 			self.oTimer = timer(self.interval, self._func)
 			self.oTimer.start()
 
@@ -41,6 +42,7 @@ class Timer():
 
 	def Clear(self):
 		self.oTimer.clear()
+		self.oTimer = None
 		self.function = None
 		self.args = None
 		self.kwargs = None

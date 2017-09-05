@@ -22,9 +22,13 @@
 
     <div class="container">
 
-      <form action="/OnLogin/" class="form-signin" method="post">
+      <form action="" class="form-signin" method="post">
         {% csrf_token %}
         <h2 class="form-signin-heading" align="center">用户登陆</h2>
+        <!-- {{ form }} -->
+        <br>
+        {{iResult}}
+        <br>
         <label for="inputAccount" class="sr-only">账号</label>
         <input name="account" id="inputAccount" class="form-control" placeholder="账号或手机" required autofocus>
         <label for="inputPassword" class="sr-only">密码</label>
