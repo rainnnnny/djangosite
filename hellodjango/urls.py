@@ -24,7 +24,9 @@ urlpatterns = [
 	url(r'^add/(\d+)/(\d+)/$', helloviews.old_add2_redirect),
 	url(r'^new_add/(\d+)/(\d+)/$', helloviews.add2, name='add2'),
 
-	url(r'^$', mainviews.login, name="login"),
 	url(r'^admin/', admin.site.urls),
+	url(r'^index$', mainviews.index, name="index"),
+	url(r'^$', mainviews.index),
+	url(r'^logout/$', mainviews.logout, name="logout"),
 
 ]
