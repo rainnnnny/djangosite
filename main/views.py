@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
 from django.http import HttpResponse
 from .models import User
 from hellodjango.defines import *
@@ -36,7 +36,7 @@ def index(request):
         if iResult == LOGIN_SUCCESS:
             if bRemember:
                 request.session['id_logged_in'] = acc
-            return render(request, 'index.html')
+            return render_to_response('index.html')
         else:
             return render(request, 'login.html', {'iResult':DICT_LOGINTIP[iResult]})
     else:
@@ -47,7 +47,7 @@ def logout(request):
         del request.session['id_logged_in']
     except KeyError:
         pass
-    return render(request, 'login.html')
+    return render_to_response('login.html')
 
 def AccVerify(acc, psw):
     oQuerySet = User.objects.filter(Account=acc)

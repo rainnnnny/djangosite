@@ -19,13 +19,14 @@ from helloapp import views as helloviews
 from main import views as mainviews
 
 urlpatterns = [
+	url(r'^admin/', admin.site.urls),
+	
 	url(r'^test$', helloviews.test, name='test'),
 	url(r'^add/$', helloviews.add, name='add'),
 	url(r'^add/(\d+)/(\d+)/$', helloviews.old_add2_redirect),
 	url(r'^new_add/(\d+)/(\d+)/$', helloviews.add2, name='add2'),
 
-	url(r'^admin/', admin.site.urls),
-	url(r'^index$', mainviews.index, name="index"),
+	url(r'^index/$', mainviews.index, name="index"),
 	url(r'^$', mainviews.index),
 	url(r'^logout/$', mainviews.logout, name="logout"),
 

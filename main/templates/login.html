@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,37 +11,30 @@
     <link rel="icon" href="../../static/images/app.ico">
 
     <title>Signin Template for Bootstrap</title>
-
     <!-- Bootstrap core CSS -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+</head>
 
-  </head>
-
-  <body>
-
+<body>
     <div class="container">
-
-      <form action="" class="form-signin" method="post">
-        {% csrf_token %}
-        <h2 class="form-signin-heading" align="center">用户登陆</h2>
-        <!-- {{ form }} -->
-        <font color="#a32424">{{iResult}}</font>
-        <br>
-        <label for="inputAccount" class="sr-only">账号</label>
-        <input name="account" id="inputAccount" class="form-control" placeholder="账号或手机" required autofocus>
-        <label for="inputPassword" class="sr-only">密码</label>
-        <input name="password" id="inputPassword" class="form-control" placeholder="密码" required>
-        <div class="checkbox">
-          <label>
-            <input name="remember" type="checkbox" value=1> 记住密码
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
-      </form>
-
+        <form action="/index/" class="form-signin" method="post">
+            {% csrf_token %}
+            <h2 class="form-signin-heading" align="center">用户登陆</h2>
+            <!-- {{ form }} -->
+            <font color="#a32424">{{iResult}}</font>
+            <br>
+            <label for="inputAccount" class="sr-only">账号</label>
+            <input name="account" id="inputAccount" class="form-control" placeholder="账号或手机" required autofocus>
+            <label for="inputPassword" class="sr-only">密码</label>
+            <input name="password" id="inputPassword" class="form-control" placeholder="密码" required>
+            <div class="checkbox">
+                <label>
+                    <input name="remember" type="checkbox" value=1> 记住密码
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+        </form>
     </div> <!-- /container -->
-
-
-  </body>
+</body>
 </html>
