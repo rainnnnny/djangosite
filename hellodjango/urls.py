@@ -20,7 +20,7 @@ from main import views as mainviews
 
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
-	
+
 	url(r'^test$', helloviews.test, name='test'),
 	url(r'^add/$', helloviews.add, name='add'),
 	url(r'^add/(\d+)/(\d+)/$', helloviews.old_add2_redirect),
