@@ -13,19 +13,18 @@
     <title>index</title>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <script src="../../hellodjango/jquery-3.2.1.js"></script>
+    <script src="../../static/jquery-3.2.1.js"></script>
 </head>
 
 <body>
 
-
-<h2>you are in control now</h2>
+<h2>you are in control now,  {{user}}</h2>
 
 <!-- <input type="button" value="logout" onclick="msg()">{% csrf_token %}</input> -->
 
 <form action="/logout/" class="form-signin" method="get">
 {% csrf_token %}
-<input type="button" class="btn btn-lg btn-primary btn-block" type="submit">登出</input>
+<button class="btn btn-lg btn-primary btn-block" type="submit">登出</input>
 </form>
 
 <script>
