@@ -42,6 +42,7 @@ def index(request):
             return response
         else:
             return render(request, 'login.html', {'iResult':AUTH_MSG[iResult]})
+            # return HttpResponse(AUTH_MSG[iResult])
     else:
         return render(request, 'login.html')
 

@@ -1,7 +1,6 @@
 #coding:utf-8
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
-
 from django.urls import reverse
 
 
@@ -24,8 +23,8 @@ def hello(request):
     return HttpResponse("Hello django! ")
 
 def add(request):
-    a = request.GET['a']
-    b = request.GET['b']
+    a = request.POST['a']
+    b = request.POST['b']
     c = int(a) * int(b)
     return HttpResponse(str(c))
 

@@ -15,7 +15,7 @@
     <title>test</title>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <script src="../../static/jquery-3.2.1.js"></script>
+    <script src="../../static/js/jquery-3.2.1.js"></script>
 
 </head>
 <body>
@@ -48,15 +48,16 @@ get args: {{ request.GET.urlencode }}
 <br>
 
 <br>
+{{csrf}}
 
 
 <p>请输入两个数字</p>
-<form action="/add/" method="get">
+<p>
     a: <input type="text" id="a" name="a"> <br>
     b: <input type="text" id="b" name="b"> <br>
     <p>result: <span id='result'></span></p>
     <button type="button" id='sum'>提交</button>
-</form>
+</p>
 
 
 <button id="list">Ajax 加载列表</button>
@@ -67,13 +68,18 @@ get args: {{ request.GET.urlencode }}
 
 
 <script>
+
+    $.ajaxSetup({
+    　　data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+
     $(document).ready(function(){
       // 求和 a + b
       $("#sum").click(function(){
         var a = $("#a").val();
         var b = $("#b").val();
         $.ajax({
-            // type: "post",
+            type: "post",
             url: "{% url 'add' %}",
             data: {'a':a,'b':b},
             success: function(ret){
