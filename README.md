@@ -3,3 +3,4 @@
 django ver = 1.11.4
 bootstrap ver = 3.3.7
 python ver = 3.6.2
+jquery ver = 3.2.1
