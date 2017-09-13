@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../static/images/app.ico">
+
+    <title>index</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../static/js/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+
+<h2>you are in control now,  {{user}}</h2>
+
+<!-- <input type="button" value="logout" onclick="msg()">{% csrf_token %}</input> -->
+
+<form action="/logout/" class="form-signin" method="get">
+{% csrf_token %}
+<button class="btn btn-lg btn-primary btn-block" type="submit">登出</input>
+</form>
+
+<script>
+function msg(){
+    var temp = document.createElement("form");
+    temp.action = '/logout/';
+    temp.method = "post";
+    temp.style.display = "{% csrf_token %}";
+    document.body.appendChild(temp);
+    temp.submit();
+    return temp;
+}
+</script>
+
+</body>
+</html>

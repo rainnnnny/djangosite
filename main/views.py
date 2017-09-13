@@ -24,9 +24,6 @@ from hellodjango.defines import *
     #     form = AddForm()
     # return render(request, 'login.html', {'form': form})
 
-def login2(request):
-    return render(request, 'login2.html')
-
 def index(request):
     user = request.session.get('id_logged_in') or request.COOKIES.get('id_logged_in')
     if user:
@@ -66,3 +63,5 @@ def Authenticate(acc, psw):
     if not oUser.PswVerify(psw):
         return AUTH_PSWERROR
     return AUTH_SUCCESS
+
+# AUTH END

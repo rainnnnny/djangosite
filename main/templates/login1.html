@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../static/images/app.ico">
+
+    <title>Signin Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/signin.css' %}" rel="stylesheet">
+    <script src="../../static/js/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/index/" class="form-signin" method="post">
+            {% csrf_token %}
+            <h2 class="form-signin-heading" align="center">用户登陆</h2>
+            <!-- {{ form }} -->
+            <font color="#a32424" id="result">{{iResult}}</font>
+            <br>
+            <label for="inputAccount" class="sr-only">账号</label>
+            <input name="account" id="inputAccount" class="form-control" placeholder="账号或手机" required autofocus>
+            <label for="inputPassword" class="sr-only">密码</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required>
+            <div class="checkbox">
+                <label>
+                    <input name="remember" type="checkbox" value=1> 记住密码
+                </label>
+            </div>
+            <button id="login" class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+        </form>
+    </div> <!-- /container -->
+
+<!-- <script>
+    $.ajaxSetup({
+    　　data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+
+    $(document).ready(function(){
+      $("#login").click(function(){
+        var account = $("#inputAccount").val();
+        var password = $("#inputPassword").val();
+        $.ajax({
+            type: "post",
+            url: "{% url 'index' %}",
+            data: {'account':account,'password':password},
+            success: function(ret){
+                $('#result').text("");
+                $('#result').text(ret);
+            }
+        })
+      });
+    });
+
+</script> -->
+
+</body>
+</html>
