@@ -31,5 +31,6 @@ urlpatterns = [
 	url(r'^index/$', mainviews.index, name="index"),
 	url(r'^$', mainviews.index),
 	url(r'^logout/$', mainviews.logout, name="logout"),
+	url(r'^login2/$', mainviews.login2, name="login2"),
 
 ]
