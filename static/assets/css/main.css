@@ -1374,7 +1374,7 @@ body.full-screen #header {
   box-shadow: none;
 }
 #content .content-wrapper .heading .option-buttons .btn-toolbar:not(.note-toolbar) > .btn-group > .btn {
-  padding: 12px;
+  padding: 16px;
 }
 #content .content-wrapper .heading .option-buttons .btn-toolbar:not(.note-toolbar) > .btn-group a {
   line-height: 24px;

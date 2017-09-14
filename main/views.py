@@ -41,7 +41,7 @@ def index(request):
             response.set_cookie("id_logged_in", acc)#, secure=True)
             return response
         else:
-            return render(request, 'login.html', {'iResult':AUTH_MSG[iResult]})
+            return render(request, 'login.html', {'sResult':AUTH_MSG[iResult]})
             # return HttpResponse(AUTH_MSG[iResult])
     else:
         return render(request, 'login.html')
