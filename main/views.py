@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import User
+from .models import User, Express, Express_delivery
 from hellodjango.defines import *
 
 # from django import forms
@@ -65,3 +65,20 @@ def Authenticate(acc, psw):
     return AUTH_SUCCESS
 
 # AUTH END
+
+
+def express(request, iPage=1):
+    oQuerySet = User.objects.all()
+    lData = oQuerySet.values()
+    data = []
+    for i in range(9):
+        for dData in lData:
+            data.append(dData)
+    iLen = len(data)
+    if iLen % EXPRESS_PAGE_ITEM_NUM == 0:
+        iPageCount = len(data) / EXPRESS_PAGE_ITEM_NUM
+    else:
+        iPageCount = len(data) // EXPRESS_PAGE_ITEM_NUM + 1
+    start = (iPage-1)*EXPRESS_PAGE_ITEM_NUM
+    data = data[start:(start+EXPRESS_PAGE_ITEM_NUM)]
+    return render(request, 'express.html', {'lData':data, 'iPageCount':iPageCount, 'iPage':iPage})

@@ -18,6 +18,8 @@ from django.contrib import admin
 from helloapp import views as helloviews
 from main import views as mainviews
 
+from django.views.generic import TemplateView
+
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
 
@@ -31,5 +33,7 @@ urlpatterns = [
 	url(r'^index/$', mainviews.index, name="index"),
 	url(r'^$', mainviews.index),
 	url(r'^logout/$', mainviews.logout, name="logout"),
+	# url(r'^express/$', TemplateView.as_view(template_name="express.html")),
+	url(r'^express/$', mainviews.express, name="express"),
 
 ]
