@@ -52,13 +52,15 @@ $("#page-header").text("收件列表")
                         </tfoot>
                     </table>
                     <ul class="pagination">
-                        {% if iPage != 1 %}
-                            <li><a href="/express/{{iPage-1}}">&laquo;</a></li>
+                        {% if iPage != 0 %}
+                            <li><a href="/express/{{iPage|add:-1}}">&laquo;</a></li>
                         {% endif %}
-                            <li><a href="#">&raquo;</a></li>
-                        {% for i in range(iPageCount) %}
-                            <li><a href="/express/{{i+1}}">{{i+1}}</a></li>
+                        {% for i in oRange %}
+                            <li><a href="/express/{{i}}">{{i|add:1}}</a></li>
                         {% endfor %}
+                        {% if iPage != iPageCount|add:-1 %}
+                            <li><a href="/express/{{iPage|add:1}}">&raquo;</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

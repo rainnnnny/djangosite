@@ -34,6 +34,6 @@ urlpatterns = [
 	url(r'^$', mainviews.index),
 	url(r'^logout/$', mainviews.logout, name="logout"),
 	# url(r'^express/$', TemplateView.as_view(template_name="express.html")),
-	url(r'^express/$', mainviews.express, name="express"),
+	url(r'^express/(\d*)/$', mainviews.express, name="express"),
 
 ]
