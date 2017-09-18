@@ -15,6 +15,7 @@ class User(models.Model):
 class Express(models.Model):
     express_number = models.BigIntegerField()
     express_company = models.CharField(max_length=10)
+    shelfID = models.CharField(max_length=5)
     recipient = models.CharField(max_length=5)
     recipient_phone = models.BigIntegerField()
     address = models.CharField(max_length=50)
@@ -28,6 +29,7 @@ class Express(models.Model):
 class Express_delivery(models.Model):
     express_number = models.BigIntegerField()
     express_company = models.CharField(max_length=10)
+    shelfID = models.CharField(max_length=5)
     recipient = models.CharField(max_length=5)
     recipient_phone = models.BigIntegerField()
     address = models.CharField(max_length=50)
