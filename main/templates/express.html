@@ -21,6 +21,7 @@ $("#page-header").text("收件列表")
                             <tr>
                                 <th>快递单号</th>
                                 <th>快递公司</th>
+                                <th>货架编号</th>
                                 <th>收件人</th>
                                 <th>收件人号码</th>
                                 <th>收件人地址</th>
@@ -33,22 +34,16 @@ $("#page-header").text("收件列表")
                         {% for dData in lData %}
                             <tr class="odd gradeX">
                                 {%for data in dData.values%}
-                                    <td>{{data}}</td>
+                                    {%if data == None%}
+                                        <td></td>
+                                    {%else%}
+                                        <td>{{data}}</td>
+                                    {%endif%}
                                 {%endfor%}
                             </tr>
                         {% endfor %}
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <th>快递单号</th>
-                                <th>快递公司</th>
-                                <th>收件人</th>
-                                <th>收件人号码</th>
-                                <th>收件人地址</th>
-                                <th>入库时间</th>
-                                <th>取件时间</th>
-                                <th>当前状态</th>
-                            </tr>
                         </tfoot>
                     </table>
                 </div>

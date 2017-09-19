@@ -72,12 +72,12 @@ def Authenticate(acc, psw):
 
 def express(request, iPage):
     iPage = int(iPage)
-    oQuerySet = User.objects.all()
+    oQuerySet = Express.objects.all()
     lData = oQuerySet.values()
     data = []
-    for i in range(9):
-        for dData in lData:
-            data.append(dData)
+    for dData in lData:
+        dData.pop('id')
+        data.append(dData)
     iLen = len(data)
     iPageCount = math.ceil(len(data) / EXPRESS_PAGE_ITEM_NUM)
     start = iPage*EXPRESS_PAGE_ITEM_NUM
