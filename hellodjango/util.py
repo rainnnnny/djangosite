@@ -3,6 +3,7 @@
 import threading #for: class Timer,
 
 
+#======================================== timer ========================================
 class timer(threading.Timer):
 
 	def clear(self):
@@ -46,3 +47,13 @@ class Timer():
 		self.function = None
 		self.args = None
 		self.kwargs = None
+
+
+#======================================== Singleton ========================================
+class Singleton():
+	_instance = None
+
+	def __new__(cls, *args, **kw):
+		if not cls._instance:
+			cls._instance = super(Singleton, cls).__new__(cls, *args, **kw)
+		return cls._instance
