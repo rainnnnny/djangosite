@@ -1,5 +1,4 @@
 from django.db import models
-import django.utils.timezone as timezone
 
 class User(models.Model):
     Account = models.CharField(max_length=15)
@@ -19,7 +18,7 @@ class Express(models.Model):
     recipient = models.CharField(max_length=5)
     recipient_phone = models.BigIntegerField()
     address = models.CharField(max_length=50)
-    create_time = models.DateTimeField(default = timezone.now)
+    create_time = models.DateTimeField(auto_now_add=True)
     leave_time = models.DateTimeField(null=True)
     status = models.CharField(max_length=10) #未取件,已取件,问题件,拒收,无人领取,其他
 
@@ -33,7 +32,7 @@ class Express_delivery(models.Model):
     recipient = models.CharField(max_length=5)
     recipient_phone = models.BigIntegerField()
     address = models.CharField(max_length=50)
-    create_time = models.DateTimeField(default = timezone.now)
+    create_time = models.DateTimeField(auto_now_add=True)
     leave_time = models.DateTimeField(null=True)
     status = models.CharField(max_length=10) #未揽件,已揽件,已发出,其他
     sender = models.CharField(max_length=5)
