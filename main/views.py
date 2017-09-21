@@ -76,7 +76,7 @@ def express(request, iPage):
     lData = oQuerySet.values()
     data = []
     for dData in lData:
-        dData.pop('id')
+        dData.pop('id')get_status_display
         data.append(dData)
     iLen = len(data)
     iPageCount = math.ceil(len(data) / EXPRESS_PAGE_ITEM_NUM)
