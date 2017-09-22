@@ -3,6 +3,33 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.urls import reverse
 
+from django import forms
+
+class TestForm(forms.Form):
+    Acc = forms.CharField(label="Acc", max_length=10)
+    Psw = forms.CharField(label="Psw", max_length=30)
+
+
+def index(request):
+    sResult = ""
+
+    if request.method == "POST":
+        form = TestForm(request.POST)
+        if form.is_valid():
+            Acc = request.POST['Acc']
+            Psw = request.POST['Psw']
+            if Acc == "test" and Psw == "2333":
+                return HttpResponseRedirect('/hello/')
+            else:
+                sResult = "wrong account or password"
+
+    else:
+        form = TestForm()
+
+    return render(request, "login1.html", {'form':form, 'sResult':sResult})
+
+def hello(request):
+    return render(request, "index1.html")
 
 def ajax_list(request):
     a = list(range(100))
@@ -17,7 +44,8 @@ def test(request):
     sTest = "asdf123花生豆腐"
     lList = ["HTML", "CSS", "javaScript", "Python", "Django"]
     dDict = {'a':1, 'b':2, 'c':3}
-    return render(request, 'test.html', {'sTest':sTest, 'lList':lList, 'dDict':dDict})
+    iTest = request.GET.get('iTest')
+    return render(request, 'test.html', {'sTest':sTest, 'lList':lList, 'dDict':dDict, 'iTest':iTest})
 
 def hello(request):
     return HttpResponse("Hello django! ")
