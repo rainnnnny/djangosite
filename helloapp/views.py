@@ -6,8 +6,8 @@ from django.urls import reverse
 from django import forms
 
 class TestForm(forms.Form):
-    Acc = forms.CharField(label="Acc", max_length=10)
-    Psw = forms.CharField(label="Psw", max_length=30)
+    Acc = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':"账号或手机"}), label="", max_length=10)
+    Psw = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':"密码"}), label="", max_length=30)
 
 
 def index(request):
@@ -19,9 +19,9 @@ def index(request):
             Acc = request.POST['Acc']
             Psw = request.POST['Psw']
             if Acc == "test" and Psw == "2333":
-                return HttpResponseRedirect('/hello/')
+                return HttpResponseRedirect('/test/hello/')
             else:
-                sResult = "wrong account or password"
+                sResult = "account or password error"
 
     else:
         form = TestForm()
@@ -47,8 +47,6 @@ def test(request):
     iTest = request.GET.get('iTest')
     return render(request, 'test.html', {'sTest':sTest, 'lList':lList, 'dDict':dDict, 'iTest':iTest})
 
-def hello(request):
-    return HttpResponse("Hello django! ")
 
 def add(request):
     a = request.POST['a']
