@@ -7,6 +7,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
 	url(r'^index/$', helloviews.index, name='index1'),
 	url(r'^hello/$', helloviews.hello, name='hello'),
+	url(r'^logout/$', helloviews.logout, name='logout1'),
 	url(r'^test/$', helloviews.test, name='test'),
 	url(r'^add/$', helloviews.add, name='add'),
 	url(r'^add/(\d+)/(\d+)/$', helloviews.old_add2_redirect),

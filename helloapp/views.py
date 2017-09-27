@@ -39,6 +39,8 @@ def ajax_dict(request):
     name_dict = {'pyt': 'life is short, ', 'hon': 'I use __'}
     return JsonResponse(name_dict)
 
+def logout(request):
+    print("hahahaha")
 
 def test(request):
     sTest = "asdf123花生豆腐"
