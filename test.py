@@ -1,4 +1,3 @@
-import xlrd
 import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hellodjango.settings")
@@ -77,8 +76,67 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        # for i, each in enumerate(numbers):
+        #     r = len(numbers) - 1
+        #     l = i + 1
+        #     tar = target - each
+        #     while l <= r:
+        #         mid = l + (r-l)//2
+        #         if numbers[mid] == tar:
+        #             return [i+1, mid+1]
+        #         elif numbers[mid] < tar:
+        #             l = mid + 1
+        #         else:
+        #             r = mid - 1
+        l, r = 0, len(numbers) - 1
+        while l < r:
+            lr = numbers[l] + numbers[r]
+            if lr == target:
+                return [l+1, r+1]
+            elif lr < target:
+                l += 1
+            else:
+                r -= 1
 
-numbers = [2, 7, 11, 15];target = 9
+
+# l = [2, 7, 3, 5, 34, 8, 12, 43, 11, 15];target = 54
+# o = Solution()
+# result = o.twoSum(l, target)
+# print(result)
+
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        count = 0
+        for each in nums:
+            if count == 0:
+                major = each
+                count += 1
+            elif major == each:
+                count += 1
+            else:
+                count -= 1
+        return major
+    
+# l = [2, 7, 3, 5, 34, 3, 3, 3, 11, 15]
+# o = Solution()
+# result = o.majorityElement(l)
+# print(result)
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        nums2 = list(set(nums))
+        print(nums, nums2)
+        return nums != nums2
+
+l = [3, 1]
 o = Solution()
-result = o.moveZeroes(l)
-print(l)
+result = o.containsDuplicate(l)
+print(result)
